@@ -1,0 +1,113 @@
+## Preproduction ##
+11/10/21 - On this day, I read the assignment instructions while eating lunch.
+11/12/21 - The design of the game will likely revolve around memory and possibly task management.
+11/13/21 - Discussing of Goals and Design
+- Game Design: The game will start with four squares/locations for the player to stand atop.
+-- The squares will have different colors and the player will want to stand on the correct color,
+-- which will continuously change. The memory aspect will involve the squares actually changing back
+-- into either white or black (TBD) at the beginning of the game such that the player
+-- will need to remember which square is what color. A loop that will be involved is that the colors
+-- of the squares will rotate, either clockwise or counterclockwise during the game. Meanwhile, the
+-- player will need to deal with obstacles that could get in the way of them memorizing which
+-- square is which. The current idea involves turrets on the edges shooting projectiles at the player
+-- to dodge or cause a (TBD) negative consequence. The scoring system and how the game ends will be (TBD).
+
+- Core Loop: 
+-- See current color and color rotation
+-- Move to current color
+-- Dodge obstacles
+
+- Aesthetic Goal: The player should feel a sense of Challenge by wanting to prove that he or she can complete
+-- the goal while dealing with other obstacles.
+- Success Indicators:
+-- The player wants to focus and can find the correct location if they focus.
+-- The player wants to move to correct locations and dodge obstacles to maintain their location.
+-- The player can find their way back to the correct location if they forget or mess up.
+- Failure Indicators
+-- The player feels confused or lost about what they need to do.
+-- The player feels hopeless when they mess up once.
+
+- Aesthetic Goal: The player should feel a sense of Expression for how they task manage and possibly relate it to their real life. 
+- Success Indicators
+-- Different players should be able to build different task management systems when internalizing
+--- the different things happening on the screen.
+-- The player should feel they've built a system to complete this game successfully.
+-- In a good way, the player could jokingly feel "I feel attacked" to mean it represents their lifestyle.
+- Failure Indicators
+-- The player after at least a couple of tries feels they cannot figure out a pattern or system to move forward.
+-- The player feels the game is only RNG.
+
+## Development ##
+11/14/21 12:00 PM CST - Added Player Prefab, Created Player.cs, Added ASDW Player Movement
+11/14/21 12:15 PM CST - Added MemoryBox Prefab, Added GameManager Empty GameObject, Created GameManager.cs
+11/14/21 12:20 PM CST - Added instantiation for four (4) Memory Boxes of color red, blue, green, yellow
+11/14/21 5:50 PM CST - Tested collider2D IsTrigger logic to only check for collision but not actually collide
+11/14/21 5:55 PM CST - Created Memory.cs to check trigger logic and prepare for rotate logic
+11/14/21 6:00 PM CST - Added BoxRotation TMP Text Object, Created Rotation.cs, Added logic to display rotation logic
+11/14/21 6:30 PM CST - Added logic to actually rotate the colors of the boxes
+11/14/21 7:00 PM CST - Moved all BoxRotation logic to Rotation.cs (in lieu of Memory.cs) to directly call colors
+11/14/21 7:20 PM CST - Added Distractions prefab to be instantiated along four (4) corners
+11/14/21 7:30 PM CST - Created Distractions.cs to begin adding projectiles
+11/14/21 7:40 PM CST - Added walls - Decided we needed walls to edges to avoid destroying objects outside of boundaries
+11/14/21 8:30 PM CST - Added Distractors prefab to be instantiated by Distractors as projectiles that move the player
+11/14/21 9:00 PM CST - Found out distractors are causing a Z-axis rotation causing transform.Translate to act weird
+11/14/21 9:10 PM CST - Updated player movement to be force-based instead of translation-based
+11/14/21 9:20 PM CST - Created Distractors.cs to destroy distractors after a certain period of time
+11/14/21 9:30 PM CST - Added Goal.cs and empty game object for Goal Text to begin setting up process to progress the game
+11/14/21 10:00 PM CST - Renamed Rotation.cs to Colors.cs to house all color content
+11/14/21 10:20 PM CST - Added Tally System to increase when player is within the boundaries of the designated color
+11/14/21 10:30 PM CST - Updated Tally System to have Distractors be destroyed after 2 successful tallies
+11/14/21 11:00 PM CST - Added Party Prefab, Created Party.cs, to have another distraction, added gravitational force to attract the player
+11/14/21 11:30 PM CST - Updated Distractions to fire at variable times within 5-10 seconds instead of at the same time all the time
+11/14/21 11:40 PM CST - Updated Distractors to destroy themselves at 8 seconds instead of 15 seconds
+11/15/21 9:30 PM CST - Created Party.cs and Party prefab as new object to attract the player by adding an inverse distance force
+11/15/21 9:40 PM CST - Allowed party prefabs to be automatically destroyed when near goal amount
+11/15/21 9:50 PM CST - Party objects were adding a significant force (magnitude > 10) to the player when very close to the player (as a result of inverse square)
+11/15/21 9:50 PM CST - Decided to change the force to a constant magnitude regardless of position and scaled the factor down to 0.5f.
+11/15/21 10:00 PM CST - Changed Distractions to fire with newly defined LowerBound and UpperBound time range of (7,13).
+11/15/21 10:20 PM CST - Added audio for when the score increases or decreases in Goal.cs
+11/15/21 2:00 PM CST - Renamed Memory.cs class to Task.cs class; Renamed BoxMemory Prefab to Task Prefab
+11/15/21 2:10 PM CST - Changed Task color rotation logic to leverage checking for tags (Red, Blue, Green, Yellow) instead of SpriteRenderer color
+11/15/21 2:30 PM CST - Added Explosion Prefab to Instantiate when Distractions are destroyed
+11/15/21 3:00 PM CST - Created GameOver.cs and Game Over scene to trigger when game is over and allow for replayability 
+11/15/21 3:10 PM CST - Fixed bug where Party's stopped being generated after the cap was hit by ensuring Goal.cs calls new function to reset count
+11/15/21 3:20 PM CST - Updated Goal and Rotate text boxes to include a countdown timer
+11/15/21 7:30 PM CST - Added audio for Distractor collision w/ player
+11/15/21 8:30 PM CST - Added new social media sprites to act as Distractors; Added party sprite as new Party object
+11/15/21 10:00 PM CST - Added optional Harder Level Scene that implements the memory aspect as desired
+
+## Postmortem ##
+
+-- Original Goal: The original goal was to create a basic game that involved the player staying in the target area while avoiding distractors 
+--- fired by objects on the screen. This task should have been exacerbated by a memory aspect that masked the colors of the target area. The
+--- player should feel challenged by this game and feel a sense of relationship with the message of this game, i.e. to focus on the task at
+--- hand and avoid distractions.
+
+-- Final goals: The design as driven by both creating a challenging game and how it reflected the player's currently distractions. For the most
+--- part this was accomplished. An additional goal that was added was to ensure the player felt like they personally feel they're in a good place
+--- about their life by the end of the game.
+--- One of the original design decisions was to mask the colored task areas to make it more difficult to identify the correct area. 
+--- This will be discussed in the what went wrong section.
+
+-- What Went Right:
+--- Implementation of the game design
+--- Utilization of specific sprites
+--- Distractors are appropriate nuisances to the player by knocking the player off course
+--- It's not exactly difficult to stay on the correct objective all of the time.
+--- The final scoring system provides a feeling of finality to the game.
+
+-- What Went Wrong:
+--- The specific attractive force from one of the object was not perfect and could be improved to be a better nuisance to the player
+--- The memory aspect of the game was designated as an add-on due to time constraints and difficulty identify the correct color to ensure
+---- the game is working correctly. As a result, the Rotation text to facilitate the memory aspect is obsolete and primarily serves
+---- as a distraction (which is not inherently bad). This was added to an optional Harder Level scene, however.
+
+-- What I Wish I Knew
+--- The exact types of objects that would promote my goals. It was finalized as I began playing to game to make specific object decisions.
+--- How difficult it would be to avoid the objects in the game based on the type of physics I would eventually decide to implement.
+
+-- What Did I Learn
+--- Personally, goals will evolve to be more clear as they come together.
+--- There will not be a perfect goal, but you will start to feel the emotion the player should feel as you are building and testing the game.
+--- If you don't have that feeling, you may be headed in the wrong direction.
+--- Obviously, I also learned more and more Unity applications.

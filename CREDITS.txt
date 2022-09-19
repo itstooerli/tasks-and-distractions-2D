@@ -1,0 +1,19 @@
+Thanks to the below authors for their assets:
+
+## Sprites ##
+-- Instagram Logo - Plaka - https://www.cleanpng.com/png-computer-icons-logo-image-sharing-flat-design-inst-739720/
+-- Facebook Logo - Johnico - https://www.cleanpng.com/png-facebook-logo-social-media-computer-icons-icon-fac-606867/
+-- TikTok Logo - Boardraye - https://www.cleanpng.com/png-tiktok-social-media-video-musical-ly-mobile-app-ti-7035703/download-png.html
+-- Snapchat Logo - Johnlyhn - https://www.cleanpng.com/png-snapchat-logo-spectacles-snap-inc-social-media-6040831/
+-- YouTube Logo - Jeanette - https://www.cleanpng.com/png-youtube-icon-png-55769/download-png.html
+-- Netflix Logo - Mssasa - https://www.cleanpng.com/png-computer-icons-netflix-symbol-desktop-wallpaper-do-1845162/
+-- Steam Logo - Durano - https://www.cleanpng.com/png-playerunknown-s-battlegrounds-steam-logo-video-gam-611021/
+-- WeChat Logo - Suprith - https://www.cleanpng.com/png-wechat-logo-viber-1094573/
+-- Party Sprite - Traub - https://www.cleanpng.com/png-beer-pong-alcoholic-drink-computer-icons-college-b-6241631/
+
+## Audio ##
+-- Score and Time [Game Sound Solution] - Unity Asset Store
+-- Score Beep [edwardszakal] - https://freesound.org/people/edwardszakal/sounds/514160/
+
+## Animations & Code ##
+-- Toon Explosion Animation - Red Shark Game Studio & Ian Horswill
