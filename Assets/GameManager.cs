@@ -86,6 +86,11 @@ public class GameManager : MonoBehaviour
             PartyCount++;
             TimeToSpawnParty += PartyInterval;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     /// <summary>
